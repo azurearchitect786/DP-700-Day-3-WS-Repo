@@ -1,0 +1,25 @@
+{
+  "sources": [
+    {
+      "id": "2ef48ed1-b87e-490d-81bd-cb3f6806731d",
+      "name": "new-source",
+      "type": "AzureSQLDBCDC",
+      "properties": {
+        "dataConnectionId": "4b5aee51-3421-4590-a749-ca39f1eba1d5",
+        "tableName": "dbo.data_source_table"
+      }
+    }
+  ],
+  "destinations": [],
+  "streams": [
+    {
+      "id": "9301c3af-8c7b-4067-a59a-c05e32de79a1",
+      "name": "cdc_data_source_table-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": []
+    }
+  ],
+  "operators": [],
+  "compatibilityLevel": "1.0"
+}

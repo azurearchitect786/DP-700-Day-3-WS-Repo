@@ -1,0 +1,227 @@
+table DimReseller
+	lineageTag: e1c390c3-c77a-4153-b0ac-9163f7194f4e
+	sourceLineageTag: [StarModel].[DimReseller]
+
+	column ResellerKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 54b6e6cb-a486-4131-bed9-5f7c3342de9f
+		sourceLineageTag: ResellerKey
+		summarizeBy: none
+		sourceColumn: ResellerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 383b8750-a1ce-41f0-aa1f-8a28197e1557
+		sourceLineageTag: GeographyKey
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResellerAlternateKey
+		dataType: string
+		sourceProviderType: varchar(15)
+		lineageTag: b4a8b9c2-a434-47a3-92b4-489b31e61fe1
+		sourceLineageTag: ResellerAlternateKey
+		summarizeBy: none
+		sourceColumn: ResellerAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		sourceProviderType: varchar(25)
+		lineageTag: ffa792ec-4f08-49b9-86fe-5cdd5c2b8d23
+		sourceLineageTag: Phone
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessType
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: 0c3a8756-3c46-45ea-8121-1f99b9cc3e8e
+		sourceLineageTag: BusinessType
+		summarizeBy: none
+		sourceColumn: BusinessType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResellerName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: c9654f1c-f494-49b8-89bf-1c0925dbc552
+		sourceLineageTag: ResellerName
+		summarizeBy: none
+		sourceColumn: ResellerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberEmployees
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d518c79a-966f-4118-821b-6cae3d0bcdb1
+		sourceLineageTag: NumberEmployees
+		summarizeBy: none
+		sourceColumn: NumberEmployees
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderFrequency
+		dataType: string
+		sourceProviderType: char
+		lineageTag: a9272769-9c9a-43ee-aae9-713929136d9c
+		sourceLineageTag: OrderFrequency
+		summarizeBy: none
+		sourceColumn: OrderFrequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderMonth
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c081950d-1481-4173-8fe7-047486776009
+		sourceLineageTag: OrderMonth
+		summarizeBy: none
+		sourceColumn: OrderMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstOrderYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: baf65a06-8a20-4d3f-aff2-1a4b5df3560a
+		sourceLineageTag: FirstOrderYear
+		summarizeBy: none
+		sourceColumn: FirstOrderYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastOrderYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ae942716-b48e-4547-a2ac-c7b34a8e4cda
+		sourceLineageTag: LastOrderYear
+		summarizeBy: none
+		sourceColumn: LastOrderYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductLine
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 381d82d2-4e20-40cf-a30d-76d48b344643
+		sourceLineageTag: ProductLine
+		summarizeBy: none
+		sourceColumn: ProductLine
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		sourceProviderType: varchar(60)
+		lineageTag: 2abc1c36-63a7-446d-bd63-1f4e8d957f60
+		sourceLineageTag: AddressLine1
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		sourceProviderType: varchar(60)
+		lineageTag: 074d8290-432b-4eec-8828-9fd2fca722df
+		sourceLineageTag: AddressLine2
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnnualSales
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 89508b47-0b4e-4a2a-bada-7186239b3df6
+		sourceLineageTag: AnnualSales
+		summarizeBy: none
+		sourceColumn: AnnualSales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BankName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 80a249b6-4909-4bee-92c5-9b65d8b9bc75
+		sourceLineageTag: BankName
+		summarizeBy: none
+		sourceColumn: BankName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MinPaymentType
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 73392a84-5943-4cd5-8429-ad96de4c27e8
+		sourceLineageTag: MinPaymentType
+		summarizeBy: none
+		sourceColumn: MinPaymentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column MinPaymentAmount
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 19200a70-544b-4e64-bc3a-f73e91f2300d
+		sourceLineageTag: MinPaymentAmount
+		summarizeBy: none
+		sourceColumn: MinPaymentAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AnnualRevenue
+		dataType: double
+		sourceProviderType: float
+		lineageTag: f7cdef09-e37f-42c6-958a-f88111b2554d
+		sourceLineageTag: AnnualRevenue
+		summarizeBy: none
+		sourceColumn: AnnualRevenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column YearOpened
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d265d990-0c7f-4fb0-9d03-d3a47ec8ab27
+		sourceLineageTag: YearOpened
+		summarizeBy: none
+		sourceColumn: YearOpened
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimReseller = entity
+		mode: directLake
+		source
+			entityName: DimReseller
+			schemaName: StarModel
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

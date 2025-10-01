@@ -1,0 +1,65 @@
+table DimProductCategory
+	lineageTag: 04c768f8-78b2-4a54-8b77-738b4a69ef52
+	sourceLineageTag: [SnowflakeModel].[DimProductCategory]
+
+	column ProductCategoryKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0383a800-c2b0-4031-908e-591881fe6c7f
+		sourceLineageTag: ProductCategoryKey
+		summarizeBy: none
+		sourceColumn: ProductCategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryAlternateKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ff3bd927-7036-480b-97bc-7a45657c3a57
+		sourceLineageTag: ProductCategoryAlternateKey
+		summarizeBy: none
+		sourceColumn: ProductCategoryAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishProductCategoryName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 14319ece-fe47-4115-9e47-368c12011077
+		sourceLineageTag: EnglishProductCategoryName
+		summarizeBy: none
+		sourceColumn: EnglishProductCategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishProductCategoryName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 4e86632c-e9d6-443f-9032-44326830a6fc
+		sourceLineageTag: SpanishProductCategoryName
+		summarizeBy: none
+		sourceColumn: SpanishProductCategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchProductCategoryName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 8724db07-bcc9-4786-ac63-cf82a428d16b
+		sourceLineageTag: FrenchProductCategoryName
+		summarizeBy: none
+		sourceColumn: FrenchProductCategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProductCategory = entity
+		mode: directLake
+		source
+			entityName: DimProductCategory
+			schemaName: SnowflakeModel
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

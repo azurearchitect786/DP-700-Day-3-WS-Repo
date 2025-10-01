@@ -1,0 +1,43 @@
+relationship 2ce5fbbf-5fd5-13d2-99ad-ed4f7c1a8f8b
+	isActive: false
+	fromColumn: FactResellerSales.EmployeeKey
+	toColumn: DimEmployee.EmployeeKey
+
+relationship 5ba940ff-3747-1a0b-4f35-5119c420299a
+	fromColumn: FactResellerSales.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship 5822f991-b59a-6bd7-0537-bbfa75764ade
+	fromColumn: DimProduct.ProductSubcategoryKey
+	toColumn: DimProductSubcategory.ProductSubcategoryKey
+
+relationship 7b044990-e17b-99bc-75ba-dae363e206dc
+	fromColumn: DimProductSubcategory.ProductCategoryKey
+	toColumn: DimProductCategory.ProductCategoryKey
+
+relationship 1bcbfe73-5018-3654-cc6c-42900fcf7e21
+	fromColumn: FactResellerSales.ResellerKey
+	toColumn: DimReseller.ResellerKey
+
+relationship 7fd3f21d-5059-355e-9863-4403c203ef9f
+	fromColumn: DimCustomer.GeographyKey
+	toColumn: DimGeography.GeographyKey
+
+relationship 454a5231-e3cc-7715-65ba-a5e1470cb04a
+	fromColumn: DimReseller.GeographyKey
+	toColumn: DimGeography.GeographyKey
+
+relationship 3ab93e76-743a-63d7-1a62-27791146ccf9
+	fromColumn: FactResellerSales.OrderDateKey
+	toColumn: DimDate.DateKey
+
+relationship f3f0fe14-8a3c-919d-f376-4f9ffeca390b
+	isActive: false
+	fromColumn: FactResellerSales.ShipDateKey
+	toColumn: DimDate.DateKey
+
+relationship 8fffa036-ac52-8da5-290a-5370a8900181
+	isActive: false
+	fromColumn: FactResellerSales.DueDateKey
+	toColumn: DimDate.DateKey
+

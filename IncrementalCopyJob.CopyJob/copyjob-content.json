@@ -1,0 +1,295 @@
+{
+  "properties": {
+    "jobMode": "CDC",
+    "source": {
+      "type": "AzureSqlTable",
+      "connectionSettings": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+          "database": "sampledbfordemo2342"
+        },
+        "externalReferences": {
+          "connection": "4b5aee51-3421-4590-a749-ca39f1eba1d5"
+        }
+      }
+    },
+    "destination": {
+      "type": "LakehouseTable",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "52c9d436-422b-9c1d-416e-d23e566f9f6d",
+          "rootFolder": "Tables"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00"
+    }
+  },
+  "activities": [
+    {
+      "id": "eba7ad46-06ed-4c58-a058-8337bae30851",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "SalesLT",
+            "table": "Customer"
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental",
+            "columns": [
+              {
+                "name": "ModifiedDate",
+                "type": "DateTime",
+                "physicalType": "datetime"
+              }
+            ]
+          }
+        },
+        "destination": {
+          "upsertSettings": {
+            "keys": [
+              "CustomerID"
+            ]
+          },
+          "writeBehavior": "Upsert",
+          "datasetSettings": {
+            "table": "SalesLT_Customer"
+          }
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "CustomerID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "CustomerID",
+                "physicalType": "integer"
+              }
+            },
+            {
+              "source": {
+                "name": "NameStyle",
+                "type": "Boolean",
+                "physicalType": "bit"
+              },
+              "destination": {
+                "name": "NameStyle",
+                "physicalType": "boolean"
+              }
+            },
+            {
+              "source": {
+                "name": "Title",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "8"
+              },
+              "destination": {
+                "name": "Title",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "FirstName",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "FirstName",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "MiddleName",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "MiddleName",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "LastName",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "LastName",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "Suffix",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "10"
+              },
+              "destination": {
+                "name": "Suffix",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "CompanyName",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "128"
+              },
+              "destination": {
+                "name": "CompanyName",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "SalesPerson",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "256"
+              },
+              "destination": {
+                "name": "SalesPerson",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "EmailAddress",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "EmailAddress",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "Phone",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "25"
+              },
+              "destination": {
+                "name": "Phone",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "PasswordHash",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "128"
+              },
+              "destination": {
+                "name": "PasswordHash",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "PasswordSalt",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "10"
+              },
+              "destination": {
+                "name": "PasswordSalt",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "rowguid",
+                "type": "Guid",
+                "physicalType": "uniqueidentifier"
+              },
+              "destination": {
+                "name": "rowguid",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "ModifiedDate",
+                "type": "DateTime",
+                "physicalType": "datetime"
+              },
+              "destination": {
+                "name": "ModifiedDate",
+                "physicalType": "timestamp"
+              }
+            }
+          ]
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "f135ce3d-e503-4442-8719-324931ec806c",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "SalesLT",
+            "table": "Product"
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental",
+            "columns": [
+              {
+                "name": "ModifiedDate",
+                "type": "DateTime",
+                "physicalType": "datetime"
+              }
+            ]
+          }
+        },
+        "destination": {
+          "upsertSettings": {
+            "keys": [
+              "ProductID"
+            ]
+          },
+          "writeBehavior": "Upsert",
+          "datasetSettings": {
+            "table": "SalesLT_Product"
+          }
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}

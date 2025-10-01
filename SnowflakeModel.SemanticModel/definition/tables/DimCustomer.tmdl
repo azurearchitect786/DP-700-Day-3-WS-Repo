@@ -1,0 +1,312 @@
+table DimCustomer
+	lineageTag: 3dea4888-6e8c-44fb-bfe9-00a973957efd
+	sourceLineageTag: [SnowflakeModel].[DimCustomer]
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e34df8a8-70ff-421b-b6c2-5df740f171d9
+		sourceLineageTag: CustomerKey
+		summarizeBy: count
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9fe18cfb-939a-49cf-afd9-2a4e3a96b07a
+		sourceLineageTag: GeographyKey
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAlternateKey
+		dataType: string
+		sourceProviderType: varchar(15)
+		lineageTag: 56a9b7ca-8b19-49ba-a4d5-0935f47494a5
+		sourceLineageTag: CustomerAlternateKey
+		summarizeBy: none
+		sourceColumn: CustomerAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		sourceProviderType: varchar(8)
+		lineageTag: ed3ba36a-1a56-4c7d-8903-1a7ca7eec3ef
+		sourceLineageTag: Title
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 4ff8f237-11e2-45d0-9274-474a3da7ecfc
+		sourceLineageTag: FirstName
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 86dd2f5c-d444-40ca-bcd8-4149673a11e3
+		sourceLineageTag: MiddleName
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 12763974-6726-4229-9223-67a03fff9853
+		sourceLineageTag: LastName
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column NameStyle
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 2847b720-d9c2-44fe-b837-80fa1d61691f
+		sourceLineageTag: NameStyle
+		summarizeBy: none
+		sourceColumn: NameStyle
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 0f043d3e-557b-452b-9cac-fa894d9997fb
+		sourceLineageTag: BirthDate
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaritalStatus
+		dataType: string
+		sourceProviderType: char
+		lineageTag: 5e2ac3a1-4382-46d7-bdad-7667526c609f
+		sourceLineageTag: MaritalStatus
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 98bb8512-2098-4c83-bb85-ec4518e0f98c
+		sourceLineageTag: Suffix
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 807bd42e-162b-4a25-a6da-99393b3b9a32
+		sourceLineageTag: Gender
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: bb500b53-e714-47ce-a993-15ed46126e09
+		sourceLineageTag: EmailAddress
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearlyIncome
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(18, 0)
+		lineageTag: d1043441-f051-4180-8ab0-85e0aefc295e
+		sourceLineageTag: YearlyIncome
+		summarizeBy: sum
+		sourceColumn: YearlyIncome
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalChildren
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 10eb1cea-080a-4b59-854c-360663a7c40a
+		sourceLineageTag: TotalChildren
+		summarizeBy: sum
+		sourceColumn: TotalChildren
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberChildrenAtHome
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: be90883c-f95d-42c1-adc6-e57066d56901
+		sourceLineageTag: NumberChildrenAtHome
+		summarizeBy: sum
+		sourceColumn: NumberChildrenAtHome
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishEducation
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: a1ab777d-fa69-4da6-8892-3ffbba260b41
+		sourceLineageTag: EnglishEducation
+		summarizeBy: none
+		sourceColumn: EnglishEducation
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishEducation
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 3c51efe4-8d2c-4cc4-a6d6-12ae41712ee4
+		sourceLineageTag: SpanishEducation
+		summarizeBy: none
+		sourceColumn: SpanishEducation
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchEducation
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: b1adb551-81a8-465a-aafe-c97eb20a29d3
+		sourceLineageTag: FrenchEducation
+		summarizeBy: none
+		sourceColumn: FrenchEducation
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishOccupation
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f0cc7e52-fbd9-48f1-9aba-023bcbd34c0a
+		sourceLineageTag: EnglishOccupation
+		summarizeBy: none
+		sourceColumn: EnglishOccupation
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishOccupation
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 495b97ef-4305-42d8-b7ed-8c6cd34ecbc7
+		sourceLineageTag: SpanishOccupation
+		summarizeBy: none
+		sourceColumn: SpanishOccupation
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchOccupation
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: a3fabb40-20ad-415a-9cd2-23397860f3d9
+		sourceLineageTag: FrenchOccupation
+		summarizeBy: none
+		sourceColumn: FrenchOccupation
+
+		annotation SummarizationSetBy = Automatic
+
+	column HouseOwnerFlag
+		dataType: string
+		sourceProviderType: char
+		lineageTag: f19a4a1b-f45e-4248-9647-5085ea4f847a
+		sourceLineageTag: HouseOwnerFlag
+		summarizeBy: none
+		sourceColumn: HouseOwnerFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberCarsOwned
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 3177e29b-35a4-48d9-aa33-d881fb3c7d75
+		sourceLineageTag: NumberCarsOwned
+		summarizeBy: sum
+		sourceColumn: NumberCarsOwned
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		sourceProviderType: varchar(120)
+		lineageTag: 4a80521a-d0c9-4c4f-976a-db39cba2000f
+		sourceLineageTag: AddressLine1
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		sourceProviderType: varchar(120)
+		lineageTag: c760728d-d271-442a-abfb-b5bdc2896ef9
+		sourceLineageTag: AddressLine2
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: 93afd9f5-a105-4cae-8cae-3397945eafbe
+		sourceLineageTag: Phone
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateFirstPurchase
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 6204b167-371c-4141-ab43-f724698f02be
+		sourceLineageTag: DateFirstPurchase
+		summarizeBy: none
+		sourceColumn: DateFirstPurchase
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommuteDistance
+		dataType: string
+		sourceProviderType: varchar(15)
+		lineageTag: cafe3d5c-895f-47fc-9bb0-7475ef267902
+		sourceLineageTag: CommuteDistance
+		summarizeBy: none
+		sourceColumn: CommuteDistance
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomer = entity
+		mode: directLake
+		source
+			entityName: DimCustomer
+			schemaName: SnowflakeModel
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

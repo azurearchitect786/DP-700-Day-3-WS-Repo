@@ -1,0 +1,76 @@
+table DimProductSubcategory
+	lineageTag: 22d00e32-1b31-4abe-8501-2f545a5a1f97
+	sourceLineageTag: [SnowflakeModel].[DimProductSubcategory]
+
+	column ProductSubcategoryKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c167c85a-da52-4df4-a204-21045f45ce2f
+		sourceLineageTag: ProductSubcategoryKey
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryAlternateKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0978ea66-da05-42b2-bef4-87406e6a7bd1
+		sourceLineageTag: ProductSubcategoryAlternateKey
+		summarizeBy: count
+		sourceColumn: ProductSubcategoryAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishProductSubcategoryName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 63377ee4-3f9f-4a67-8bfc-18fac37c3489
+		sourceLineageTag: EnglishProductSubcategoryName
+		summarizeBy: none
+		sourceColumn: EnglishProductSubcategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishProductSubcategoryName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: dbba82ee-db42-4bfc-ad72-d2facd73bf3d
+		sourceLineageTag: SpanishProductSubcategoryName
+		summarizeBy: none
+		sourceColumn: SpanishProductSubcategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchProductSubcategoryName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: d77ab58a-82fa-4532-8043-94097f4b53ac
+		sourceLineageTag: FrenchProductSubcategoryName
+		summarizeBy: none
+		sourceColumn: FrenchProductSubcategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 97f516a6-e55e-46b0-a744-217ad76df1e6
+		sourceLineageTag: ProductCategoryKey
+		summarizeBy: none
+		sourceColumn: ProductCategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProductSubcategory = entity
+		mode: directLake
+		source
+			entityName: DimProductSubcategory
+			schemaName: SnowflakeModel
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

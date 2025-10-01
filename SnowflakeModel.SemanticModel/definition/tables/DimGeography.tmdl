@@ -1,0 +1,125 @@
+table DimGeography
+	lineageTag: a38e9d5f-b631-4f58-a0a8-61e5eecb2b73
+	sourceLineageTag: [SnowflakeModel].[DimGeography]
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 46041add-2985-4864-aeee-2ab90af8a219
+		sourceLineageTag: GeographyKey
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: 62fd4575-f29a-4647-8d73-35b31d5a05c3
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceCode
+		dataType: string
+		sourceProviderType: varchar(3)
+		lineageTag: 3647938f-6138-40d2-9e0f-371d498075fe
+		sourceLineageTag: StateProvinceCode
+		summarizeBy: none
+		sourceColumn: StateProvinceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 3c700af1-59c9-4868-b0b1-72e9db238d39
+		sourceLineageTag: StateProvinceName
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		sourceProviderType: varchar(3)
+		lineageTag: c192edfd-e24f-4220-b0ab-87e18d4ee3c0
+		sourceLineageTag: CountryRegionCode
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishCountryRegionName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 727d95a7-b553-4a3a-913b-2a2905c5caeb
+		sourceLineageTag: EnglishCountryRegionName
+		summarizeBy: none
+		sourceColumn: EnglishCountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishCountryRegionName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 12266903-9bd2-470c-8a75-c761586c9a4b
+		sourceLineageTag: SpanishCountryRegionName
+		summarizeBy: none
+		sourceColumn: SpanishCountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchCountryRegionName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 15568d58-a228-41a1-afb7-e825cc240641
+		sourceLineageTag: FrenchCountryRegionName
+		summarizeBy: none
+		sourceColumn: FrenchCountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		sourceProviderType: varchar(15)
+		lineageTag: e53b8510-2cb9-4f69-8a16-a60402e0d7d9
+		sourceLineageTag: PostalCode
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8db9eff3-e747-4f90-857a-780cda7029cd
+		sourceLineageTag: SalesTerritoryKey
+		summarizeBy: count
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column IpAddressLocator
+		dataType: string
+		sourceProviderType: varchar(15)
+		lineageTag: 36b1d77a-ebf0-4945-a50f-7f0f32388422
+		sourceLineageTag: IpAddressLocator
+		summarizeBy: none
+		sourceColumn: IpAddressLocator
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimGeography = entity
+		mode: directLake
+		source
+			entityName: DimGeography
+			schemaName: SnowflakeModel
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "LoadsIntoGoldLayerWHFromLakehouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1e0a4d08-b2f9-acc4-44a0-522af58046d4"
+  }
+}

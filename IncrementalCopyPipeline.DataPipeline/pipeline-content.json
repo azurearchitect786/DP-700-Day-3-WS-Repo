@@ -1,0 +1,188 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "AzureSqlTable",
+            "typeProperties": {
+              "schema": "dbo",
+              "table": "watermarktable",
+              "database": "sampledbfordemo2342"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "4b5aee51-3421-4590-a749-ca39f1eba1d5"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupOldWaterMarkActivity",
+        "dependsOn": []
+      },
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from data_source_table",
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "AzureSqlTable",
+            "typeProperties": {
+              "database": "sampledbfordemo2342"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "4b5aee51-3421-4590-a749-ca39f1eba1d5"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupNewWaterMarkActivity",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "sqlReaderQuery": "select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "AzureSqlTable",
+              "typeProperties": {
+                "database": "sampledbfordemo2342"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "4b5aee51-3421-4590-a749-ca39f1eba1d5"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "Upsert",
+            "upsertSettings": {
+              "keys": [
+                "PersonID"
+              ]
+            },
+            "applyVOrder": true,
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "table": "data_source_table_Delta"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "lkhday3",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "52c9d436-422b-9c1d-416e-d23e566f9f6d",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "IncrementalCopyActivity",
+        "dependsOn": [
+          {
+            "activity": "LookupOldWaterMarkActivity",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "LookupNewWaterMarkActivity",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "SqlServerStoredProcedure",
+        "typeProperties": {
+          "database": "sampledbfordemo2342",
+          "storedProcedureName": "[dbo].[usp_write_watermark]",
+          "storedProcedureParameters": {
+            "LastModifiedtime": {
+              "value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}",
+              "type": "Datetime"
+            },
+            "TableName": {
+              "value": "@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}",
+              "type": "String"
+            }
+          }
+        },
+        "externalReferences": {
+          "connection": "4b5aee51-3421-4590-a749-ca39f1eba1d5"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "StoredProceduretoWriteWatermarkActivity",
+        "dependsOn": [
+          {
+            "activity": "IncrementalCopyActivity",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

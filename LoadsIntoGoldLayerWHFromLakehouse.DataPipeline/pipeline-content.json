@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Loading",
+        "type": "SqlServerStoredProcedure",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "storedProcedureName": "[Sales].[LoadDataFromStaging]"
+        },
+        "linkedService": {
+          "name": "warehouseloadsdemo",
+          "properties": {
+            "annotations": [],
+            "type": "DataWarehouse",
+            "typeProperties": {
+              "endpoint": "yc5m6ynvgguu7h2sjnyy44f5ty-v44wv5xkkc6udo6vyd24xjpzvy.datawarehouse.fabric.microsoft.com",
+              "artifactId": "1efa2d5f-e620-4d8c-bfe3-f7583e815362",
+              "workspaceId": "f66a39af-50ea-41bd-bbd5-c0f5cba5f9ae"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
