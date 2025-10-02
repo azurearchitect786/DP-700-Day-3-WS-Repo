@@ -230,6 +230,45 @@
             ]
           }
         ]
+      },
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "AzureSqlTable",
+            "typeProperties": {
+              "schema": "dbo",
+              "table": "watermarktable",
+              "database": "sampledbfordemo2342"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "4b5aee51-3421-4590-a749-ca39f1eba1d5"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupOldWaterMarkActivity_copy1_copy1",
+        "dependsOn": [
+          {
+            "activity": "LookupOldWaterMarkActivity_copy1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
       }
     ]
   }
